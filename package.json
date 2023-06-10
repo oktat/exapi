@@ -1,15 +1,15 @@
 {
-  "name": "exjoke",
+  "name": "expressapi",
   "version": "1.0.0",
-  "description": "",
+  "description": "Express API with simple Sequelize",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
     "dev": "nodemon app --watch app",
     "start": "node app"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["express", "api"],
+  "author": "Sallai András",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
