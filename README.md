@@ -12,7 +12,9 @@ cd exapi
 npm install
 ```
 
-## API KEY generation
+## APP KEY generation
+
+Run the genkey tools:
 
 ```cmd
 node tools/genkey.js
