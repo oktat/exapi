@@ -7,8 +7,8 @@ Express based REST API sablon
 ## Install
 
 ```cmd
-git clone https://github.com/oktat/expressapi
-cd expressapi
+git clone https://github.com/oktat/exapi
+cd exapi
 npm install
 ```
 
