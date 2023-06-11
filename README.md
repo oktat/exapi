@@ -1,6 +1,8 @@
-# Express API
+# exapi
 
-Express framework
+Exapi framework
+
+Express based REST API sablon
 
 ## Install
 
