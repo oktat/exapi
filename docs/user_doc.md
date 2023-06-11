@@ -24,4 +24,30 @@ All endpoint have a /api prefix.
 |-|-|-|-|
 | /register | POST  | no |  create user |
 | /login    | POST  | no |  login  |
-| /users    | GET   | no |  read users |
+| /users    | GET   | yes |  read users |
+
+## The register endpoint
+
+```json
+{
+    "name": "joe",
+    "email": "joe@green.lan",
+    "password": "secret",
+    "password_confirmation": "secret"
+}
+```
+
+## The login endpoint
+
+```json
+{
+    "name": "joe",
+    "password": "secret"
+}
+```
+
+You receive the bearear token with accessToken key.
+
+## The users endpoint
+
+Send the bearer token.
