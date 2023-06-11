@@ -8,16 +8,23 @@
     "dev": "nodemon app --watch app",
     "start": "node app"
   },
-  "keywords": ["express", "api"],
+  "keywords": [
+    "express",
+    "api"
+  ],
   "author": "Sallai András",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "config": "^3.3.9",
     "dotenv": "^16.1.4",
     "express": "^4.18.2",
+    "generate-api-key": "^1.0.2",
     "jsonwebtoken": "^9.0.0",
     "mariadb": "^3.1.2",
     "morgan": "^1.10.0",
+    "prettier": "^2.8.8",
+    "replace": "^1.2.2",
     "sequelize": "^6.32.0",
     "sqlite3": "^5.1.6"
   },

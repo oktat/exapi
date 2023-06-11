@@ -1,21 +1,21 @@
 const Sequalize = require('sequelize')
 require('dotenv').config()
+const config = require('../../config/default.json')
 
-var log = false
-if(process.env.LOG != 'false') {
-    log = console.log
+if(config.app.log != false) {
+    var log = console.log
 }
 
 console.log(typeof console.log)
 const sequalize = new Sequalize(
-    process.env.DB_NAME,
-    process.env.DB_USER, 
-    process.env.DB_PASS,
+    config.db.name,
+    config.db.user, 
+    config.db.pass,
     {
         logging: log,
-        dialect: process.env.DB_DIALECT,
-        storage: process.env.DB_PATH,
-        host: process.env.DB_HOST,        
+        dialect: config.db.dialect,
+        storage: config.db.path,
+        host: config.db.host,
         dialectOptions: {}
     }
 )

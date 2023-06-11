@@ -7,6 +7,7 @@ const { verifyToken } = require('../middleware/authjwt')
  
 router.post('/register', AuthController.register)
 router.post('/login', AuthController.login)
-router.get('/users', [verifyToken], UserController.index)
+// router.get('/users', [verifyToken], UserController.index)
+router.get('/users', UserController.index)
  
 module.exports = router
