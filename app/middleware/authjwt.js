@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-require('dotenv').config()
+const config = require('../../config/default.json')
  
 exports.verifyToken = (req, res, next) => {
     let authData = req.headers.authorization;
@@ -10,7 +10,7 @@ exports.verifyToken = (req, res, next) => {
     }
     let token = authData.split(' ')[1];
  
-    jwt.verify(token, process.env.APP_KEY, (err, decoded) => {
+    jwt.verify(token, config.app.key, (err, decoded) => {
         if(err) {
             return res.status(401).send({
                 message: "Unauthorized!"

@@ -1,5 +1,4 @@
 const Sequalize = require('sequelize')
-require('dotenv').config()
 const config = require('../../config/default.json')
 
 if(config.app.log != false) {
