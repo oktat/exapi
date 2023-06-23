@@ -1,4 +1,4 @@
-const Sequalize = require('sequelize')
+const Sequelize = require('sequelize')
 const config = require('../../config/default.json')
 
 if(config.app.log != false) {
@@ -6,7 +6,7 @@ if(config.app.log != false) {
 }
 
 console.log(typeof console.log)
-const sequalize = new Sequalize(
+const sequelize = new Sequelize(
     config.db.name,
     config.db.user, 
     config.db.pass,
@@ -19,4 +19,4 @@ const sequalize = new Sequalize(
     }
 )
  
-module.exports = sequalize
+module.exports = sequelize
