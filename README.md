@@ -28,8 +28,11 @@ The database settings can be found at the following location:
 
 ### Database dialect
 
+The default database is an in-memory database. Its contents are cleared after the server is restarted.
+
 One of:
 
+* :memory:
 * sqlite
 * mariadb
 
