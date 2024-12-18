@@ -4,7 +4,7 @@ const User = require('../models/user')
 const config = require('../../config/default.json')
  
 const AuthController = {
-    async register(req, res) {
+    async register(req, res) {        
         var clientError = false;
         try {
             if(!req.body.name ||
@@ -18,17 +18,14 @@ const AuthController = {
                 clientError = true
                 throw new Error('Error! The two password is not same!')
             }
-            await User.findOne({
+            const user = await User.findOne({
                 where: { name: req.body.name }
             })
-            .then(user => {
-                if(user) {
-                    clientError = true
-                    throw new Error('Error! User already exists: ' + user.name)
-                }
-                AuthController.tryRegister(req, res)
-            })
-            
+            if(user) {
+                clientError = true
+                throw new Error('Error! User already exists: ' + user.name)
+            }
+            AuthController.tryRegister(req, res)
         } catch (error) {
             if (clientError) {
                 res.status(400)
@@ -64,44 +61,37 @@ const AuthController = {
                res.status(400)
                throw new Error('Error! Bad name or password!')
             }
-            const user = {
-                name: req.body.name,
-                password: bcrypt.hashSync(req.body.password)
-            }
-            User.findOne({
-                where: {  name: req.body.name }
+            const user = await User.findOne({
+                where: { name: req.body.name }
             })
-            .then(user => {
-                if(!user) {
-                    res.status(404)
-                    throw new Error('Error! User not found!')                    
-                }
-                passwordIsValid = bcrypt.compareSync(
-                    req.body.password,
-                    user.password
-                );
-                if(!passwordIsValid) {
-                    res.status(401)
-                    throw new Error('Erorr! Invalid password!')
-                }
-                AuthController.tryLogin(req, res, user)
-            })                    
-        } catch (error) {
-            if(res.statusCode<400) {
-                res.status(500)
-                res.json({
-                    success: false,
-                    message: 'Error! The login is failed!',
-                    error: error.message
-                })
+
+            if(!user) {
+                res.status(404)
+                throw new Error('Error! User not found!')
             }
+            var passwordIsValid = await bcrypt.compare(
+                req.body.password,
+                user.dataValues.password
+            );
+            if(!passwordIsValid) {
+                res.status(401)
+                throw new Error('Error! Password is not valid!')
+            }
+            AuthController.tryLogin(req, res, user)
+
+        } catch (error) {
+            res.json({
+                success: false,
+                message: 'Error! The login is failed!',
+                error: error.message
+            })
         }
     },
     async tryLogin(req, res, user) {
         var token = jwt.sign({ id: user.id }, config.app.key, {
             expiresIn: 86400 //24 óra
         })
-        res.status(200).send({
+        res.status(200).json({
             id: user.id,
             name: user.name,
             email: user.email,

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "dev": "nodemon app --watch app",
+    "dev": "nodemon app",
     "start": "node app"
   },
   "keywords": [

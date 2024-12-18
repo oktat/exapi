@@ -3,3 +3,4 @@ node_modules/
 database.sqlite
 access.log
 config/default.json
+pnpm-lock.yaml
