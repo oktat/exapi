@@ -26,6 +26,22 @@ The database settings can be found at the following location:
 
 * config/default.json
 
+### Database dialect
+
+One of:
+
+* sqlite
+* mariadb
+
+After installing the appropriate dependencies, it can be used:
+
+* mysql
+* postgres
+* mssql
+* db2
+* snowflake
+* oracle
+
 ## Starting
 
 For development:
@@ -45,19 +61,3 @@ npm start
 May be freely distributed under the MIT license.
 
 Copyright (c) 2023 Sallai András
-
-## Database dialect
-
-One of:
-
-* sqlite
-* mariadb
-
-After installing the appropriate dependencies, it can be used:
-
-* mysql
-* postgres
-* mssql
-* db2
-* snowflake
-* oracle
