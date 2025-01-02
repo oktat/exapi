@@ -6,6 +6,12 @@
 pnpm install
 ```
 
+## Copy config file
+
+Copy the config file from **config/default.json.example** to **config/default.json**.
+
+* config/default.json.example -> config/default.json
+
 ## App key generation
 
 ```cmd
